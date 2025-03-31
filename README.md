@@ -85,18 +85,29 @@ This project focuses on modeling and comparing traffic flow on a freeway divided
    cd actm_control
     ```
 2. **Install poetry**
-   ```bash
-   poetry install
+
+   If virtual environment inside folder is desired
+
+    ```bash
+    poetry config virtualenvs.in-project true
     ```
+
+    Then install
+
+    ```bash
+    poetry install
+      ```
 3. **Run project**
     From browser
+
    ```bash
-    poetry shell
+    poetry env activate
     jupyter notebook src/actm_simulations.ipynb
     ```
 
     From VS Code
-    Using Ctrl+Shift+P Select kernel with path
+    Using Ctrl+Shift+P select path of the kernel
+    If inside root folder
     ```bash
      .venv/bin/python
      ```
