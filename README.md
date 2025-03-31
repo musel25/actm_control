@@ -20,7 +20,15 @@ Optimal control freeway systems
    poetry install
     ```
 3. **Run project**
+    From browser
    ```bash
     poetry shell
-    python src/actm.ipynb
+    jupyter notebook src/actm.ipynb
     ```
+    
+    From VS Code
+    Using Ctrl+Shift+P Select kernetl with path
+    ```bash
+     .venv/bin/python
+     ```
+     And run it
