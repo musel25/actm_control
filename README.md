@@ -1,5 +1,9 @@
 # Simulation and Performance Analysis of Ramp Metering Control Strategies in Traffic Networks
 
+Musel Tabares
+Filippo La Fauci
+Daniel Limmy
+
 ## Overview
 
 This project focuses on modeling and comparing traffic flow on a freeway divided into multiple sections. It examines the dynamics of traffic density, flow, and ramp metering by considering both open-loop (no control) and closed-loop (ALINEA control) strategies for managing on-ramp traffic. The primary goal is to assess how different control approaches impact overall traffic conditions, particularly at merging points where vehicles enter the freeway.
