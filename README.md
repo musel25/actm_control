@@ -98,6 +98,7 @@ This project focuses on modeling and comparing traffic flow on a freeway divided
     poetry install
       ```
 3. **Run project**
+
     From browser
 
    ```bash
