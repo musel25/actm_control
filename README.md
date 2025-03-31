@@ -25,9 +25,9 @@ Optimal control freeway systems
     poetry shell
     jupyter notebook src/actm.ipynb
     ```
-    
+
     From VS Code
-    Using Ctrl+Shift+P Select kernetl with path
+    Using Ctrl+Shift+P Select kernel with path
     ```bash
      .venv/bin/python
      ```
