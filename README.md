@@ -23,7 +23,7 @@ Optimal control freeway systems
     From browser
    ```bash
     poetry shell
-    jupyter notebook src/actm.ipynb
+    jupyter notebook src/actm_simulations.ipynb
     ```
 
     From VS Code
