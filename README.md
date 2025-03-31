@@ -1,6 +1,6 @@
 # Simulation and Performance Analysis of Ramp Metering Control Strategies in Traffic Networks
 
-Musel Tabares
+Musel Tabares Pardo
 
 Filippo La Fauci
 
