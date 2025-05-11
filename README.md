@@ -102,7 +102,7 @@ This project focuses on modeling and comparing traffic flow on a freeway divided
     From browser
 
    ```bash
-    poetry run jupyter notebook src/actm_simulations.ipynb
+    poetry run jupyter notebook actm_simulations.ipynb
     ```
 
     From VS Code
