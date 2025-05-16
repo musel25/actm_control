@@ -73,42 +73,88 @@ This project focuses on modeling and comparing traffic flow on a freeway divided
 
 ## Prerequisites
 
-- **Python 3.7+** 
-- [**Poetry**](https://python-poetry.org/) installed globally
+- **Python 3.7+**
+- [**Poetry**](https://python-poetry.org/) installed globally if used for environment
+- [**Miniconda / Anaconda**](https://docs.conda.io/en/latest/miniconda.html) if using Conda environment
+
+---
 
 ## Installation
+
+### Option 1: Using Poetry
 
 1. **Clone the Repository**
 
    ```bash
    git clone https://github.com/musel25/actm_control.git
    cd actm_control
-    ```
-2. **Install poetry**
+   ```
 
-   If virtual environment inside folder is desired
+2. **Install Poetry dependencies**
 
-    ```bash
-    poetry config virtualenvs.in-project true
-    ```
-
-    Then install
-
-    ```bash
-    poetry install
-      ```
-3. **Run project**
-
-    From browser
+   If you want the virtual environment to live inside the project folder:
 
    ```bash
-    poetry run jupyter notebook actm_simulations.ipynb
-    ```
+   poetry config virtualenvs.in-project true
+   ```
 
-    From VS Code
-    Using Ctrl+Shift+P select path of the kernel
-    If inside root folder
-    ```bash
+   Then install dependencies:
+
+   ```bash
+   poetry install
+   ```
+
+---
+
+### Option 2: Using Conda
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/musel25/actm_control.git
+   cd actm_control
+   ```
+
+2. **Create and activate the Conda environment**
+
+   ```bash
+   conda env create -f environment.yml
+   conda activate actm_control
+   ```
+
+3. **Use Poetry with Conda Python (optional)**
+
+   Inside the activated Conda environment:
+
+   ```bash
+   poetry config virtualenvs.create false
+   poetry install
+   ```
+
+---
+
+## Running the Project
+
+### From Jupyter Notebook (Browser):
+
+```bash
+poetry run jupyter notebook actm_simulations.ipynb
+```
+
+### From VS Code:
+
+- Press `Ctrl+Shift+P` → select **Python: Select Interpreter**
+- Choose the Python interpreter:
+
+   - If using Poetry venv in project folder:
+     ```bash
      .venv/bin/python
      ```
-     And run it
+   - If using Conda:
+     ```bash
+     ~/miniconda3/envs/actm_control/bin/python
+     ```
+
+- Open and run `actm_simulations.ipynb`.
+
+---
