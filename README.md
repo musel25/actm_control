@@ -158,3 +158,33 @@ poetry run jupyter notebook actm_simulations.ipynb
 - Open and run `actm_simulations.ipynb`.
 
 ---
+
+## Results and Discussion
+
+### Comparison of No Control vs. ALINEA Control
+
+#### 1. Ramp Demand and Downstream Effects
+- **No Control:** Ramp inflows follow the demand profile exactly, often resulting in high inflows during peak demand periods. This can lead to rapid increases in downstream density, causing congestion and reduced outflow.
+- **ALINEA Control:** The ramp inflow is dynamically adjusted to maintain the mainline density near a target value. This results in lower and more stable downstream densities, especially during periods of high demand, and helps prevent the onset of congestion.
+
+#### 2. Downstream Density and Flow
+- **No Control:** Downstream density at each ramp section can spike sharply, often exceeding optimal values and leading to traffic breakdown. The corresponding downstream flow may initially increase but then drops as congestion sets in.
+- **ALINEA Control:** Downstream density is kept closer to the target, with fewer and less severe spikes. The downstream flow remains more consistent, avoiding the sharp drops seen in the uncontrolled case.
+
+#### 3. Overall Average Density
+- The average density across all freeway sections is significantly lower and more stable with ALINEA control. In the no control case, the average density rises quickly and remains elevated for a prolonged period, indicating widespread congestion. With ALINEA, the average density is controlled and returns to optimal levels much faster.
+
+#### 4. Density Heatmaps
+- **No Control:** The heatmap shows large regions of high density propagating through the network, especially after demand surges. This visualizes the spread and persistence of congestion.
+- **ALINEA Control:** The heatmap reveals that high-density regions are much smaller and dissipate more quickly, demonstrating the effectiveness of feedback control in containing and resolving congestion.
+
+### Summary Table
+| Metric                | No Control         | ALINEA Control      |
+|----------------------|-------------------|--------------------|
+| Downstream Density   | High, unstable    | Lower, stable      |
+| Outflow              | Drops with congestion | More consistent   |
+| Avg. Density         | High, slow recovery | Lower, fast recovery |
+| Congestion Spread    | Widespread        | Localized, contained |
+
+### Conclusion
+The ALINEA ramp metering strategy consistently outperforms the open-loop (no control) approach in all tested scenarios. By regulating ramp inflows based on real-time mainline density, ALINEA prevents excessive congestion, maintains higher and more stable outflows, and ensures that the freeway operates closer to optimal conditions. These results highlight the value of feedback-based ramp metering for freeway traffic management.
