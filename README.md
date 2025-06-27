@@ -159,32 +159,50 @@ poetry run jupyter notebook actm_simulations.ipynb
 
 ---
 
-## Results and Discussion
+## Results and Scenario-Specific Discussion
 
-### Comparison of No Control vs. ALINEA Control
+Below is a scenario-by-scenario analysis, outlining the behavior of both No Control and ALINEA strategies for each case:
 
-#### 1. Ramp Demand and Downstream Effects
-- **No Control:** Ramp inflows follow the demand profile exactly, often resulting in high inflows during peak demand periods. This can lead to rapid increases in downstream density, causing congestion and reduced outflow.
-- **ALINEA Control:** The ramp inflow is dynamically adjusted to maintain the mainline density near a target value. This results in lower and more stable downstream densities, especially during periods of high demand, and helps prevent the onset of congestion.
+### 1. Baseline
+- **No Control:** High ramp inflows at the start cause a rapid increase in downstream density, leading to congestion and a drop in outflow. The average density remains elevated for a long period, and congestion spreads through the network.
+- **ALINEA:** Ramp inflows are regulated, keeping downstream density near the target. Congestion is prevented or quickly resolved, resulting in more stable outflow and lower average density.
 
-#### 2. Downstream Density and Flow
-- **No Control:** Downstream density at each ramp section can spike sharply, often exceeding optimal values and leading to traffic breakdown. The corresponding downstream flow may initially increase but then drops as congestion sets in.
-- **ALINEA Control:** Downstream density is kept closer to the target, with fewer and less severe spikes. The downstream flow remains more consistent, avoiding the sharp drops seen in the uncontrolled case.
+### 2. High Constant Demand
+- **No Control:** Persistent high demand overwhelms the freeway, causing severe and sustained congestion. Downstream flow drops sharply after an initial peak.
+- **ALINEA:** The controller limits ramp inflow to avoid exceeding the target density. While some congestion may occur due to high demand, it is less severe and dissipates faster than in the uncontrolled case.
 
-#### 3. Overall Average Density
-- The average density across all freeway sections is significantly lower and more stable with ALINEA control. In the no control case, the average density rises quickly and remains elevated for a prolonged period, indicating widespread congestion. With ALINEA, the average density is controlled and returns to optimal levels much faster.
+### 3. Low Constant Demand
+- **No Control:** Demand is low enough that congestion does not develop. Both strategies yield similar results, with stable densities and flows.
+- **ALINEA:** The controller has little effect, as the system is already operating under optimal conditions.
 
-#### 4. Density Heatmaps
-- **No Control:** The heatmap shows large regions of high density propagating through the network, especially after demand surges. This visualizes the spread and persistence of congestion.
-- **ALINEA Control:** The heatmap reveals that high-density regions are much smaller and dissipate more quickly, demonstrating the effectiveness of feedback control in containing and resolving congestion.
+### 4. Oscillatory Demand
+- **No Control:** Density and flow oscillate in response to the demand, with possible congestion during high-demand phases. The system struggles to recover after each surge.
+- **ALINEA:** The controller smooths out the oscillations, preventing large spikes in density and maintaining more consistent flow.
 
-### Summary Table
-| Metric                | No Control         | ALINEA Control      |
-|----------------------|-------------------|--------------------|
-| Downstream Density   | High, unstable    | Lower, stable      |
-| Outflow              | Drops with congestion | More consistent   |
-| Avg. Density         | High, slow recovery | Lower, fast recovery |
-| Congestion Spread    | Widespread        | Localized, contained |
+### 5. Additional On-ramp
+- **No Control:** The extra on-ramp increases total inflow, making the system more prone to congestion. Downstream densities rise quickly, and congestion is widespread.
+- **ALINEA:** The controller manages all ramps, distributing inflow to keep densities near the target. Congestion is contained and less severe.
 
-### Conclusion
-The ALINEA ramp metering strategy consistently outperforms the open-loop (no control) approach in all tested scenarios. By regulating ramp inflows based on real-time mainline density, ALINEA prevents excessive congestion, maintains higher and more stable outflows, and ensures that the freeway operates closer to optimal conditions. These results highlight the value of feedback-based ramp metering for freeway traffic management.
+### 6. Lower Free-Flow Speed
+- **No Control:** Reduced free-flow speed lowers the system's capacity, so congestion develops more easily and persists longer.
+- **ALINEA:** The controller compensates by further limiting ramp inflow, helping to keep densities in check and improving recovery.
+
+### 7. Lower Maximum Density
+- **No Control:** The freeway saturates at a lower density, so congestion occurs sooner and is more severe.
+- **ALINEA:** The controller adapts to the new capacity, keeping densities below the lower threshold and reducing congestion duration.
+
+### 8. Step Change in Demand
+- **No Control:** A sudden increase in demand causes a sharp spike in density and a rapid onset of congestion, with slow recovery.
+- **ALINEA:** The controller quickly responds to the step change, limiting inflow and preventing a major breakdown.
+
+### 9. Random Demand Fluctuations
+- **No Control:** Random surges in demand lead to unpredictable spikes in density and flow, with frequent congestion events.
+- **ALINEA:** The controller dampens the effect of random fluctuations, maintaining more stable traffic conditions and reducing the frequency and severity of congestion.
+
+### 10. Higher Initial Density
+- **No Control:** Starting with a higher density means the system is already close to congestion. Even moderate inflows can trigger breakdowns.
+- **ALINEA:** The controller is more aggressive in limiting ramp inflow, helping the system recover to optimal density more quickly.
+
+---
+
+This scenario-specific analysis demonstrates that ALINEA consistently improves traffic performance, especially under challenging or variable conditions. The benefits are most pronounced in scenarios with high, variable, or sudden demand, or when the freeway's capacity is reduced.
